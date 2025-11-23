@@ -1,0 +1,12 @@
+# Neovim plugin folders
+nvim/plugin/
+nvim/lazy/
+
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
