@@ -24,6 +24,9 @@ if ! i3-msg -t get_tree | grep -q "\"class\":\"$WINDOW_CLASS\""; then
         "jetbrains-idea")
             idea &
             ;;
+        "FileZilla")
+            filezilla &
+            ;;
         *)
             echo "Unknown application class: $WINDOW_CLASS"
             exit 1

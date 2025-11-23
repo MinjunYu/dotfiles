@@ -16,6 +16,7 @@ set $intellij "intellij"
 set $ws10 "10"
 set $chrome "chrome"
 set $term "term"
+set $filezilla "filezilla"
 
 # Rotate second vertial monitor if any
 exec_always --no-startup-id xrandr --output $monitor2 --rotate right
@@ -32,6 +33,7 @@ workspace $ws8 output $monitor1
 workspace $intellij output $monitor1
 workspace $chrome output $monitor1
 workspace $term output $monitor1
+workspace $filezilla output $monitor1
 
 
 #exec --no-startup-id "i3-msg 'workspace 1; exec quick-to-load-application'"
@@ -176,6 +178,7 @@ bindsym $sup+i exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh jetbrains
 bindsym $sup+0 workspace number $ws10
 bindsym $sup+t exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Alacritty term
 bindsym $sup+c exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Google-chrome chrome
+bindsym $sup+z exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh FileZilla filezilla
 
 
 # move focused container to workspace
@@ -191,6 +194,7 @@ bindsym $sup+Shift+i move container to workspace number $intellij
 bindsym $sup+Shift+0 move container to workspace number $ws10
 bindsym $sup+Shift+t move container to workspace $term
 bindsym $sup+Shift+c move container to workspace $chrome
+bindsym $sup+Shift+z move container to workspace $filezilla
 
 # reload the configuration file
 bindsym $sup+Shift+h reload
@@ -249,3 +253,6 @@ for_window [class="Alacritty"] move to workspace $term layout tabbed
 
 assign [class="jetbrains-idea"] $intellij
 for_window [class="jetbrains-idea"] move to workspace $intellij layout tabbed
+
+assign [class="FileZilla"] $filezilla
+for_window [class="FileZilla"] move to workspace $filezilla layout tabbed
