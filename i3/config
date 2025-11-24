@@ -174,11 +174,11 @@ bindsym $sup+5 workspace number $ws5
 bindsym $sup+6 workspace number $ws6
 bindsym $sup+7 workspace number $ws7
 bindsym $sup+8 workspace number $ws8
-bindsym $sup+i exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh jetbrains-idea intellij
+bindsym $sup+i exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh jetbrains-idea $intellij
 bindsym $sup+0 workspace number $ws10
-bindsym $sup+t exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Alacritty term
-bindsym $sup+c exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Google-chrome chrome
-bindsym $sup+z exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh FileZilla filezilla
+bindsym $sup+t exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Alacritty $term
+bindsym $sup+c exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh Google-chrome $chrome
+bindsym $sup+z exec --no-startup-id ~/.config/i3/scripts/toggle-app.sh FileZilla $filezilla
 
 
 # move focused container to workspace
