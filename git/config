@@ -1,0 +1,38 @@
+[user]
+	email = alex.minjun.yu@gamil.com
+	name = Minjun Yu
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[alias]
+	# Basic shortcuts
+	st = status
+	co = checkout
+	br = branch
+	cm = commit
+	cma = commit --amend
+
+	# Diff
+	d = diff
+	dc = diff --cached
+
+	# Log
+	lg = log --oneline --graph --decorate --all
+	last = log -1 HEAD
+
+	# Staging
+	unstage = reset HEAD --
+
+	# Branch management
+	branches = branch -a
+	tags = tag -l
+
+	# Remote
+	remotes = remote -v

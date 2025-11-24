@@ -1,5 +1,22 @@
 # Dotfiles for linux system
 
+## Git Configuration
+Global git config at `git/config`
+
+**Symlink setup:**
+```bash
+ln -s ~/dev/dotfiles/git/config ~/.config/git/config
+```
+
+**Common aliases included:**
+- `git st` - status
+- `git co` - checkout
+- `git br` - branch
+- `git cm` - commit
+- `git cma` - commit --amend
+- `git d` - diff
+- `git lg` - log graph
+
 ## Window Management
 i3 with Bash script
 
