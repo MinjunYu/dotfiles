@@ -1,24 +1,70 @@
 # Dotfiles for linux system
 
-## Git Configuration
-Global git config at `git/config`
+Personal configuration files for development environment.
 
-**Symlink setup:**
+## What's Included
+
+- **Git** - Global git configuration with common aliases
+- **i3** - Window manager configuration with app toggle scripts
+- **Neovim** - Editor configuration
+
+## Installation
+
+All configurations use symlinks from this repo to their expected locations.
+
+### Setup Symlinks
+
 ```bash
+# Git configuration
+mkdir -p ~/.config/git
 ln -s ~/dev/dotfiles/git/config ~/.config/git/config
+
+# i3 window manager
+mkdir -p ~/.config/i3
+ln -s ~/dev/dotfiles/i3/config ~/.config/i3/config
+ln -s ~/dev/dotfiles/i3/scripts ~/.config/i3/scripts
+
+# Neovim
+mkdir -p ~/.config/nvim
+ln -s ~/dev/dotfiles/nvim/* ~/.config/nvim/
 ```
 
-**Common aliases included:**
+**Note:** Adjust paths if your dotfiles repo is in a different location.
+
+---
+
+## Git Configuration
+
+**Location:** `git/config`
+
+### Common Aliases
+
 - `git st` - status
 - `git co` - checkout
 - `git br` - branch
 - `git cm` - commit
 - `git cma` - commit --amend
 - `git d` - diff
-- `git lg` - log graph
+- `git dc` - diff --cached
+- `git lg` - log --oneline --graph --decorate --all
+- `git last` - log -1 HEAD
+- `git unstage` - reset HEAD --
+- `git branches` - branch -a
+- `git remotes` - remote -v
 
-## Window Management
-i3 with Bash script
+---
+
+## i3 Window Manager
+
+**Location:** `i3/config` and `i3/scripts/`
+
+### App Toggle Shortcuts
+
+- `Super+t` - Alacritty terminal
+- `Super+c` - Google Chrome
+- `Super+i` - IntelliJ IDEA
+- `Super+z` - FileZilla
+- `Super+Shift+[key]` - Move current window to that workspace
 
 ### Adding New App Shortcuts
 
@@ -78,10 +124,10 @@ To add a new application with keyboard shortcuts (like Super+key to toggle):
    ```
    Or press `Super+Shift+h`
 
-**Examples in this config:**
-- `Super+t` - Alacritty terminal
-- `Super+c` - Google Chrome
-- `Super+i` - IntelliJ IDEA
-- `Super+z` - FileZilla
+---
 
 ## Neovim
+
+**Location:** `nvim/`
+
+See [nvim/README.md](nvim/README.md) for detailed configuration.
