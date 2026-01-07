@@ -1,0 +1,10 @@
+# Git branch function
+parse_git_branch() {
+    git branch 2>/dev/null | sed -n 's/^\* //p'
+}
+
+# Allow function in prompt
+setopt PROMPT_SUBST
+
+# Prompt: [path] (branch) $
+PROMPT='%F{blue}%~%f %F{yellow}$(parse_git_branch)%f$ '
