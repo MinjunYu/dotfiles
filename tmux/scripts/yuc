@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+SESSION="yuc"
+PROJECT_ROOT="$HOME/dev/yc-workspace/yucommerce"
+
+# Attach if session already exists
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+    tmux attach-session -t "$SESSION"
+    exit 0
+fi
+
+# Create new session with first window
+tmux new-session -d -s "$SESSION" -n "claude" -c "$PROJECT_ROOT"
+
+# Create remaining windows
+tmux new-window -t "$SESSION" -n "nvim" -c "$PROJECT_ROOT"
+tmux new-window -t "$SESSION" -n "db" -c "$PROJECT_ROOT"
+tmux new-window -t "$SESSION" -n "backend" -c "$PROJECT_ROOT"
+tmux new-window -t "$SESSION" -n "web" -c "$PROJECT_ROOT/web-client"
+tmux new-window -t "$SESSION" -n "shell" -c "$PROJECT_ROOT"
+
+# Select first window and attach
+tmux select-window -t "$SESSION:0"
+tmux attach-session -t "$SESSION"

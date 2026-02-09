@@ -126,6 +126,23 @@ To add a new application with keyboard shortcuts (like Super+key to toggle):
 
 ---
 
+## tmux
+
+**Location:** `tmux/scripts/`
+
+### Session Scripts
+
+- **`yuc`** — Creates a idempotent tmux session for the YuCommerce project with 6 windows: claude, nvim, db, backend, web, shell.
+
+### Setup
+
+```bash
+# Symlink session script to PATH
+ln -s ~/dev/dotfiles/tmux/scripts/yuc ~/.local/bin/yuc
+```
+
+---
+
 ## Neovim
 
 **Location:** `nvim/`
