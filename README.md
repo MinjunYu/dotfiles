@@ -7,6 +7,7 @@ Personal configuration files for development environment.
 - **Git** - Global git configuration with common aliases
 - **i3** - Window manager configuration with app toggle scripts
 - **Neovim** - Editor configuration
+- **Tmux** - Tmux configuration
 
 ## Installation
 
@@ -57,14 +58,6 @@ ln -s ~/dev/dotfiles/nvim/* ~/.config/nvim/
 ## i3 Window Manager
 
 **Location:** `i3/config` and `i3/scripts/`
-
-### App Toggle Shortcuts
-
-- `Super+t` - Alacritty terminal
-- `Super+c` - Google Chrome
-- `Super+i` - IntelliJ IDEA
-- `Super+z` - FileZilla
-- `Super+Shift+[key]` - Move current window to that workspace
 
 ### Adding New App Shortcuts
 
@@ -128,9 +121,8 @@ To add a new application with keyboard shortcuts (like Super+key to toggle):
 
 ## tmux
 
-**Location:** `tmux/scripts/`
-
 ### Session Scripts
+**Location:** `tmux/scripts/`
 
 - **`yuc`** — Creates a idempotent tmux session for the YuCommerce project with 6 windows: claude, nvim, db, backend, web, shell.
 
