@@ -11,26 +11,22 @@ Personal configuration files for development environment.
 
 ## Installation
 
-All configurations use symlinks from this repo to their expected locations.
+This repo uses [GNU Stow](https://www.gnu.org/software/stow/) to manage symlinks.
 
-### Setup Symlinks
+### Install All Packages
 
 ```bash
-# Git configuration
-mkdir -p ~/.config/git
-ln -s ~/dev/dotfiles/git/config ~/.config/git/config
-
-# i3 window manager
-mkdir -p ~/.config/i3
-ln -s ~/dev/dotfiles/i3/config ~/.config/i3/config
-ln -s ~/dev/dotfiles/i3/scripts ~/.config/i3/scripts
-
-# Neovim
-mkdir -p ~/.config/nvim
-ln -s ~/dev/dotfiles/nvim/* ~/.config/nvim/
+cd ~/dotfiles
+stow git i3 nvim tmux zsh
 ```
 
-**Note:** Adjust paths if your dotfiles repo is in a different location.
+### Install Individual Packages
+
+```bash
+cd ~/dotfiles
+stow nvim      # Install only nvim
+stow -D nvim   # Uninstall nvim
+```
 
 ---
 
@@ -122,16 +118,11 @@ To add a new application with keyboard shortcuts (like Super+key to toggle):
 ## tmux
 
 ### Session Scripts
-**Location:** `tmux/scripts/`
+**Location:** `tmux/.local/bin/`
 
 - **`yuc`** — Creates a idempotent tmux session for the YuCommerce project with 6 windows: claude, nvim, db, backend, web, shell.
 
-### Setup
-
-```bash
-# Symlink session script to PATH
-ln -s ~/dev/dotfiles/tmux/scripts/yuc ~/.local/bin/yuc
-```
+Symlinked to `~/.local/bin/yuc` via stow.
 
 ---
 
