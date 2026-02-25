@@ -1,0 +1,179 @@
+" IdeaVim configuration - mirrors Neovim keybindings
+
+" ============================================================================
+" Basic Settings
+" ============================================================================
+set scrolloff=10
+set number
+set relativenumber
+set showmode
+set showcmd
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" Leader key
+let mapleader = " "
+
+" ============================================================================
+" IdeaVim Plugins
+" ============================================================================
+set surround
+set commentary
+set argtextobj
+set highlightedyank
+set NERDTree
+set which-key
+set notimeout
+
+" ============================================================================
+" Basic Keybindings
+" ============================================================================
+" Clear search highlights
+nnoremap <Esc> :nohlsearch<CR>
+
+" Disable arrow keys (like in neovim config)
+nnoremap <Left> :echo "Use h"<CR>
+nnoremap <Right> :echo "Use l"<CR>
+nnoremap <Up> :echo "Use k"<CR>
+nnoremap <Down> :echo "Use j"<CR>
+
+" ============================================================================
+" LSP-equivalent Keybindings
+" ============================================================================
+" Go to definition (grd in neovim)
+nmap grd <Action>(GotoDeclaration)
+
+" Go to declaration (grD in neovim)
+nmap grD <Action>(GotoDeclaration)
+
+" Go to implementation (gri in neovim)
+nmap gri <Action>(GotoImplementation)
+
+" Find references (grr in neovim)
+nmap grr <Action>(FindUsages)
+
+" Rename (grn in neovim)
+nmap grn <Action>(RenameElement)
+
+" Code action (gra in neovim)
+nmap gra <Action>(ShowIntentionActions)
+vmap gra <Action>(ShowIntentionActions)
+
+" Go to type definition (grt in neovim)
+nmap grt <Action>(GotoTypeDeclaration)
+
+" Document symbols (gO in neovim)
+nmap gO <Action>(FileStructurePopup)
+
+" Workspace symbols (gW in neovim)
+nmap gW <Action>(GotoSymbol)
+
+" Toggle inlay hints (<leader>th in neovim)
+nmap <leader>th <Action>(ToggleInlayHintsGloballyAction)
+
+" Hover documentation (K is standard)
+nmap K <Action>(QuickJavaDoc)
+
+" Show signature help
+nmap <C-k> <Action>(ParameterInfo)
+imap <C-k> <Action>(ParameterInfo)
+
+" ============================================================================
+" Diagnostics
+" ============================================================================
+" Open diagnostic quickfix list (<leader>q in neovim)
+nmap <leader>q <Action>(ActivateProblemsViewToolWindow)
+
+" Navigate diagnostics
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+
+" Show diagnostic in popup
+nmap <leader>d <Action>(ShowErrorDescription)
+
+" ============================================================================
+" Search/Find (Telescope equivalents)
+" ============================================================================
+" Search files (<leader>sf in neovim)
+nmap <leader>sf <Action>(GotoFile)
+
+" Search files including ignored (<leader>sF in neovim)
+nmap <leader>sF <Action>(GotoFile)
+
+" Find existing buffers (<leader><leader> in neovim)
+nmap <leader><leader> <Action>(RecentFiles)
+
+" Search recent files (<leader>s. in neovim)
+nmap <leader>s. <Action>(RecentFiles)
+
+" Live grep (<leader>sg in neovim)
+nmap <leader>sg <Action>(FindInPath)
+
+" Search current word (<leader>sw in neovim)
+nmap <leader>sw <Action>(FindWordAtCaret)
+
+" Fuzzy find in current buffer (<leader>/ in neovim)
+nmap <leader>/ <Action>(Find)
+
+" Live grep in open files (<leader>s/ in neovim)
+nmap <leader>s/ <Action>(FindInPath)
+
+" Search help tags (<leader>sh in neovim)
+nmap <leader>sh <Action>(HelpTopics)
+
+" Search keymaps (<leader>sk in neovim)
+nmap <leader>sk <Action>(GotoAction)
+
+" Select builtin (<leader>ss in neovim) - map to action search
+nmap <leader>ss <Action>(GotoAction)
+
+" Search diagnostics (<leader>sd in neovim)
+nmap <leader>sd <Action>(ActivateProblemsViewToolWindow)
+
+" Resume previous search (<leader>sr in neovim)
+nmap <leader>sr <Action>(FindNext)
+
+" ============================================================================
+" Buffer/Tab Navigation
+" ============================================================================
+nmap <S-h> <Action>(PreviousTab)
+nmap <S-l> <Action>(NextTab)
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+
+" ============================================================================
+" NERDTree (File Explorer)
+" ============================================================================
+nmap <leader>e <Action>(ActivateProjectToolWindow)
+nmap <leader>E <Action>(SelectInProjectView)
+
+" ============================================================================
+" Refactoring
+" ============================================================================
+nmap <leader>rr <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>re <Action>(ExtractMethod)
+nmap <leader>rv <Action>(IntroduceVariable)
+nmap <leader>rf <Action>(IntroduceField)
+nmap <leader>ri <Action>(Inline)
+nmap <leader>rm <Action>(Move)
+
+" ============================================================================
+" Running/Debugging
+" ============================================================================
+nmap <leader>rc <Action>(RunClass)
+nmap <leader>rn <Action>(Run)
+nmap <leader>rd <Action>(Debug)
+nmap <leader>rs <Action>(Stop)
+nmap <leader>rb <Action>(ToggleLineBreakpoint)
+
+" ============================================================================
+" Terminal
+" ============================================================================
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
