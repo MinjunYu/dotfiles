@@ -1,4 +1,4 @@
-# Dotfiles for linux system
+# Dotfiles
 
 Personal configuration files for development environment.
 
@@ -16,14 +16,15 @@ This repo uses [GNU Stow](https://www.gnu.org/software/stow/) to manage symlinks
 ### Install All Packages
 
 ```bash
-cd ~/dotfiles
+cd ~/dev/dotfiles   # or wherever the repo is cloned
 stow git i3 nvim tmux zsh
 ```
+
+A `.stowrc` file in the repo root sets `--target=~` so symlinks always land in `~` regardless of where the repo is cloned. Without it, stow would default to the parent of the repo directory.
 
 ### Install Individual Packages
 
 ```bash
-cd ~/dotfiles
 stow nvim      # Install only nvim
 stow -D nvim   # Uninstall nvim
 ```
