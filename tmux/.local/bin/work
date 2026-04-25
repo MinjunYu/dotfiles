@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Spawns the yucommerce dev tmux session.
+# If a session named "work" already exists, just attach to it.
+
+SESSION="work"
+REPO="/home/myu/dev/yc-workspace/yucommerce"
+WEB="$REPO/web-client"
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux attach-session -t "$SESSION"
+  exit 0
+fi
+
+# Create session with the first window (claude)
+tmux new-session -d -s "$SESSION" -n "claude" -c "$REPO"
+tmux send-keys -t "$SESSION:claude" "claude" Enter
+
+# Remaining windows
+tmux new-window -t "$SESSION" -n "nvim"    -c "$REPO"
+tmux new-window -t "$SESSION" -n "shell"   -c "$REPO"
+tmux new-window -t "$SESSION" -n "backend" -c "$REPO"
+tmux new-window -t "$SESSION" -n "web"     -c "$WEB"
+tmux new-window -t "$SESSION" -n "db"      -c "$REPO"
+
+# Start on the claude window
+tmux select-window -t "$SESSION:claude"
+tmux attach-session -t "$SESSION"
