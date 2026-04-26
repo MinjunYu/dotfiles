@@ -88,6 +88,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# screenshot area selection
+bindsym --release $sup+p exec --no-startup-id scrot -s '%Y-%m-%d-%H%M%S_scrot.png' -e 'mv $f ~/Pictures/'
+
 # start a terminal
 bindsym $sup+Return exec i3-sensible-terminal
 
