@@ -89,7 +89,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # screenshot area selection
-bindsym --release $sup+p exec --no-startup-id scrot -s '%Y-%m-%d-%H%M%S_scrot.png' -e 'mv $f ~/Pictures/'
+bindsym --release $sup+p exec --no-startup-id scrot -s '%Y-%m-%d-%H%M%S_scrot.png' -e 'mv $f ~/Pictures/ && xclip -selection clipboard -t image/png -i ~/Pictures/$f'
 
 # start a terminal
 bindsym $sup+Return exec i3-sensible-terminal
